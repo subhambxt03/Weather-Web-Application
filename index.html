@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="day-theme">
+    <div class="container">
+
+        <!-- HEADER SECTION -->
+        <header>
+            <div class="search-section">
+                <div class="search-input-container">
+                    <input type="text" id="city-input" placeholder="Search for location">
+                    <button id="search-btn">Search</button>
+                </div>
+                <div class="search-history" id="search-history">
+                    
+                </div>
+            </div>
+            <div class="header-right">
+                <button class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i> Night Mode
+                </button>
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <!-- CURRENT WEATHER CARD -->
+            <div class="current-weather">
+                <div class="location-date">
+                    <div class="location">
+                        <h2 id="city-name">Search for a location</h2>
+                        <div class="date" id="current-date">--</div>
+                        <div class="time" id="current-time">--:-- --</div>
+                    </div>
+                    <div class="current-temp">
+                        <div class="temp-value" id="temperature">--°</div>
+                        <div class="weather-icon">
+                            <i class="wi wi-day-sunny sunny" id="current-icon"></i>
+                        </div>
+                        <div class="weather-desc" id="description">--</div>
+                    </div>
+                </div>
+
+                <div class="weather-details">
+                    <div class="detail-item">
+                        <div>Feels Like</div>
+                        <div class="detail-value" id="feels-like">--°</div>
+                    </div>
+                    <div class="detail-item">
+                        <div>Humidity</div>
+                        <div class="detail-value" id="humidity">--%</div>
+                    </div>
+                    <div class="detail-item">
+                        <div>Wind Speed</div>
+                        <div class="detail-value" id="wind-speed">-- m/s</div>
+                    </div>
+                    <div class="detail-item">
+                        <div>Pressure</div>
+                        <div class="detail-value" id="pressure">-- hPa</div>
+                    </div>
+                </div>
+
+                <div class="location-btn-container">
+                    <div class="location-btn-bg"></div>
+                    <button class="location-btn" id="location-btn">
+                        <i class="fas fa-location-arrow"></i> Use My Location
+                    </button>
+                </div>
+
+                <!-- INTERACTIVE MAP -->
+                <div class="interactive-map">
+                    <div id="map"></div>
+                </div>
+            </div>
+
+            <!-- FORECAST SECTION -->
+            <div class="forecast-section">
+                
+                <!-- HOURLY FORECAST -->
+                <div class="hourly-forecast">
+                    <h3 class="section-title">24-Hour Forecast</h3>
+                    <div class="hourly-container" id="hourly-container">
+                        
+                    </div>
+                </div>
+
+                <!-- 5-DAY FORECAST -->
+                <div class="daily-forecast">
+                    <h3 class="section-title">5-Day Forecast</h3>
+                    <div class="daily-container" id="daily-container">
+                       
+                    </div>
+                </div>
+
+                <!-- ADDITIONAL INFORMATION -->
+                <div class="additional-info">
+                    <h3 class="section-title"></h3>
+                    <div class="additional-grid">
+                        <div class="additional-item">
+                            <div>Humidity</div>
+                            <div class="additional-value" id="add-humidity">--%</div>
+                        </div>
+                        <div class="air-quality-item">
+                            <div>Air Quality</div>
+                            <div class="aqi-value" id="aqi-value">--</div>
+                            <div class="aqi-status" id="aqi-status">--</div>
+                        </div>
+                        <div class="additional-item">
+                            <div>Sunrise</div>
+                            <div class="additional-value" id="sunrise">--:-- --</div>
+                        </div>
+                        <div class="additional-item">
+                            <div>Sunset</div>
+                            <div class="additional-value" id="sunset">--:-- --</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LOADING AND ERROR MESSAGES -->
+        <div class="loading" id="loading"></div>
+        <div class="error-message" id="error-message"></div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
