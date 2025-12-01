@@ -1,4 +1,6 @@
-# Weather-Web-Application
+# Weather-Web-Application 
+Live Link--- https://realtime-weatherapplication.netlify.app/
+
 A real-time Weather Web App using OpenWeatherMap API that shows current weather, forecasts, AQI, sunrise/sunset, and detailed metrics. It supports city search, geolocation, theme toggle, search history, and an interactive Leaflet.js map with click-based weather updates.
 
 The Web Appliction is built using HTML, CSS, and JavaScript and integrates several key functionalities:
